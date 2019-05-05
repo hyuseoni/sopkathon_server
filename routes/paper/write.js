@@ -7,10 +7,9 @@ const connection = mysql.createConnection(dbConfig);
 router.post('/', function(req, res){ 
     
     const user_idx = req.body.user_idx;
-    const paper_idx = req.body.paper_idx;
-    const contents = req.body.contents;
+    const title = req.body.title;
 
-    var sql = `INSERT INTO comment (contents, user_idx, paper_idx) VALUES ("${contents}", ${user_idx}, ${paper_idx})`;
+    var sql = `INSERT INTO paper (user_idx, title) VALUES (${user_idx}, "${title}")`;
 
     var query = connection.query(sql, function(err, result){
         if(err) {

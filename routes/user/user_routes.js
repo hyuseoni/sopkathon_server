@@ -1,12 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-//회원가입
-const signup = require('./signup');
-router.use('/signup', signup);
-
-//로그인
-const login = require('./login');
-router.use('/login', login);
+//회원 조회
+const view = require('./view');
+router.use('/view', view);
 
 module.exports = router;
