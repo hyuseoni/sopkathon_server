@@ -6,8 +6,9 @@ const connection = mysql.createConnection(dbConfig);
 
 router.get('/', function(req, res){ 
 
-    var sql = 'SELECT * from comment';
-    
+    const paper_idx = req.body.paper_idx;
+    var sql = `SELECT * from comment where paper_idx = ${paper_idx}`;
+        
     var query = connection.query(sql, function(err, result){
         if(err) {
             console.log(err);

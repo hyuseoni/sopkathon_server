@@ -5,7 +5,10 @@ const dbConfig = require('../../config/database');
 const connection = mysql.createConnection(dbConfig);
 
 router.get('/', function(req, res){ 
-    var sql = 'SELECT * from paper';
+    
+    const user_idx = req.body.user_idx;
+    var sql = `SELECT * from paper where user_idx = ${user_idx}`;
+    
     var query = connection.query(sql, function(err, result){
         if(err) {
             res.status(500).send('Internal Server Error')
