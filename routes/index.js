@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-router.use('/s3', require('./s3/s3_routes'));
+//router.use('/user', require('./user/user_routes'));
+router.use('/paper', require('./paper/paper_routes'));
+//router.use('/comment', require('./comment/comment_routes'));
+//console.log('Hello world')
 
 module.exports = router;
